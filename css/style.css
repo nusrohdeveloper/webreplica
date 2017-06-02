@@ -6,7 +6,7 @@ src: url(../font/century-gothic.ttf);
 
 html,
 body {
-background-image:url(../images/login/mmg.png);
+background-image:url(../images/login/webr.png);
 background-repeat: repeat;
 margin:0;
 padding:0;
@@ -15,7 +15,7 @@ height:100%;
 }
 
 .card.hovercard {
-background-image:url(../images/login/mmg3.png);
+background-image:url(../images/login/webr2.png);
 background-repeat: repeat;
 /*position: relative;*/
 padding: 30px 0px;

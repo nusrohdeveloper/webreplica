@@ -49,7 +49,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'GET' || ( $_SERVER['REQUEST_METHOD'] == 'POS
  	$status = $row['status'];
 
 	 if($status != '1' & ($agent_membership_id != '' || $agent_membership_id != '88888888')){
-	    echo "<script>alert('No user in database');</script>";
+	    echo "<script>alert('SORRY, NOT AVAILABLE IN USER NAME LIST.');</script>";
 	    // header("Location: marketing.php?");
 	   //wp_redirect( home_url(), 301 );
 	  //  exit();
@@ -149,23 +149,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
               }
 
         }else{
-          $errors = "<li>Problem with profile picture.</li>";
+          $errors = "<li>There are issues with the picture.</li>";
         }
       }
       else
       {
-        $errors = "<li>Upload profile picture.</li>";
+        $errors = "<li>Profile picture is required.</li>";
       }
   	}else{
-  		$errors = "<li>Username existed.</li>";
+  		$errors = "<li>Username already exists.</li>";
   	}
     }else{
     	 $errors = "There is a mistake when filling in the form.";
 	 if(strlen($phone)<10 || strlen($phone)>11 ){$errors .= "<li>Phone Number: 10 - 11 digits</li>";}
 	 if(!ctype_digit($phone) ){$errors .= "<li>Phone Number: Number only without special character</li>";}
 	 if( isset($_POST['ic_no']) && ( strlen($ic_no) < 12 || strlen($ic_no) > 12 ) ){ $errors .= "<li>ID Number: 12 digits</li>";}
-	 if($username != str_replace(' ', '', $username) || !ctype_alnum($username)){$errors .= "<li>Username: ! word, lowercase, no space & special character</li>";}
-	 if(strlen($zip_code) < 5 || strlen($zip_code) > 5 ){$errors .= "<li>Address (zip_code): 5 digits</li>";}
+	 if($username != str_replace(' ', '', $username) || !ctype_alnum($username)){$errors .= "<li>Username: One word, lowercase, no space and no special character</li>";}
+	 if(strlen($zip_code) < 5 || strlen($zip_code) > 5 ){$errors .= "<li>Address (Zip Code): 5 digits</li>";}
 	 if($_POST['agree'] != 1 ){$errors .= "<li>Not choose terms approval</li>";}
 
   }
@@ -181,7 +181,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="expires" content="" />
     <meta http-equiv="pragma" content="no-cache" />
-    <title><?php echo $agent_username; ?>@webreplica</title>
+    <title><?php echo $agent_username; ?>@webreplica.com</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap-fileinput/bootstrap-fileinput.css">
@@ -194,14 +194,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 			<div class="row"  id="no-margin">
 				<div class="col-sm-5">
           <?php
-            if (strpos($img_url, 'webreplica') == false) {
-                $img_url = "images/uploads/$img_url";
-            }
+              if ($img_url !='' && strpos($img_url, 'webreplica') == false) {
+                  $img_url = "images/uploads/$img_url";
+              } else {
+                  $img_url = "images/default-avatar-male-3.png";
+              }
             // if (strpos($img_url, 'images/uploads') == false) {
             //     $img_url = "../images/uploads/$img_url";
             // }
            ?>
-					<div class="avatar text-xs-center"><img alt="" src=<?php echo $img_url; ?>></div>
+					<div class="avatar text-xs-center"><img src=<?php echo $img_url; ?>></div>
 				</div>
 				<div class="col-sm-7 heading-text ">
 					<span class="heading-top  ">Welcome</span>
@@ -268,7 +270,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <input id = "zip_code" name = "zip_code" type="number" autocomplete="off" placeholder="Zip Code" class="form-control" value="<?php echo $zip_code; ?>" required/>
                   </div>
                     <div class="col-xs-8 padding-right-0">
-                      <input id = "city" name = "city" type="text" autocomplete="off" placeholder="City/Province" class="form-control" value="<?php echo $city; ?>"  required/>
+                      <input id = "city" name = "city" type="text" autocomplete="off" placeholder="City / Province" class="form-control" value="<?php echo $city; ?>"  required/>
                     </div>
                 </div>
                 <div class="row margin-top-10"  id="no-margin">
@@ -329,7 +331,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
              </div>
              <div class="row"  id="no-margin">
                <div class="col-md-12 ">
-                 <h4>Web Replica Infromation</h4>
+                 <h4>Web Replica Information</h4>
                  <hr>
                </div>
              </div>
@@ -348,7 +350,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                </div>
                <span class='errors input-error' id='error-text'>
-               <small>*Username: 1 word, without space and (.*$#!?) </small>
+               <small>*Username: One word, no space, lowercase & no (. * $ # !?) </small>
                </span>
                <small><span class='errors input-error-2' id='error-text'><span></small>
              </div>
@@ -357,15 +359,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                              <div class="row row-eq-height in-form-row" id="no-margin">
                                <div class="col-xs-6 ">
                                  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
-                                   <img src="images/" alt="" /> </div>
+                                   <img src="images/default-avatar-male-3.png" alt="" /> </div>
                                    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
                                     </div>
                                  </div>
                                  <div class="col-xs-6">
                                    <div>
                                      <span id='upload_span'>Profile Picture</span>
-                                     <p><small>Dimension: <br>150px X 150px</small></p>
-                                     <p><small>Size: Less than 500kb</small></p>
+                                     <p><small>Best Dimension: <br>150px X 150px</small></p>
+                                     <p><small>Size: Not More Than 500KB</small></p>
                                      <span class="btn default btn-file span6">
                                        <span class="fileinput-new"> Select image </span>
                                        <span class="fileinput-exists"> Change </span>
@@ -377,7 +379,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                </div>
                              </div>
                        <div class="form-group" id='agree-div'>
-                   <input type="checkbox" name="agree" id="agree" value="1"  required/> Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy.
+                   <input type="checkbox" name="agree" id="agree" value="1"  required/> I agree to register and the information given is accurate. If the information provided is wrong, I will bear the consequences of its own negligence and I would not blame any party.
                     </div>
 
             <div class="margin-top-10">
