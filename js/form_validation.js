@@ -101,6 +101,30 @@
      }
   });
 
+  $("#email").on('blur',function(){
+  var min_chars = 3;
+
+   //result texts
+   var empty = "<i class='fa fa-question' style='color:#ff8f00' ></i>";
+   var loading_icon = "<i class='fa fa-spinner fa-pulse fa-fw' id='loaderIcon'></i>";
+   var characters_error = 'E-Mail: someone@example.com';
+   var checking_html = 'Checking...'
+   var email_value= $('#email').val();
+
+    if($('#email').val().length == 0){
+         //if it's bellow the minimum show characters_error text '
+         $('#email-availability-status').html(empty);
+         email.parent().parent().removeClass('has-error');
+     }else if(!email_value.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)){
+         //if it's bellow the minimum show characters_error text '
+         $('#email-availability-status').html(characters_error);
+     }else{
+         //else show the cheking_text and run the function to check
+         $('#email-availability-status').html(loading_icon);
+         checkEmailAvailability();
+     }
+  });
+
 
   var _URL = window.URL || window.webkitURL;
 
@@ -207,12 +231,6 @@
       return false;
     }
   }
-
-    if (errorFlag > 0){
-      $( modal ).effect( "shake", {times:1}, 200 );
-      return false;
-    }
-  }
   function checkAvailabilityClassError() {
     var flag = 0;
     var username = $("#username");
@@ -271,6 +289,55 @@
       username.parent().parent().addClass('has-error');
       username.focus();
       $("#if-error").html(format_username);
+      $("#if-error").show();
+
+      return 1;
+    }
+  }
+
+  function checkEmailAvailability() {
+    var indicator;
+    var flag = 999;
+    var email = $("#email");
+    var email_value = $("#email").val();
+    var format_email ="<small>*E-Mail: someone@example.com"
+
+    if(!isNaN(email_value))
+    {
+      indicator = "<i class='fa fa-times' id='not-available' style='color:red'></i>";
+      $("#email-availability-status").html(indicator);
+    }
+    if(email_value != '' && isNaN(email_value))
+    {
+      $("#question-icon").hide();
+      jQuery.ajax({
+      url: "check_emailavailability.php",
+      data:'email='+email_value,
+      type: "POST",
+      success:function(data){
+        if(data == 1){
+          email.parent().parent().addClass('has-error');
+          indicator = "<i class='fa fa-times' id='email-not-available' style='color:red'></i>";
+          email.focus();
+          flag = parseInt(data);
+        }else{
+          email.parent().parent().removeClass('has-error');
+          email.parent().removeClass('has-error');
+          indicator = "<i class='fa fa-check' id='email-available' style='color:green'></i>";
+          flag = parseInt(data);
+        }
+        $("#email-availability-status").html(indicator);
+        $("#loaderIcon").hide();
+        flag = parseInt(data);
+      },
+      error:function (){}
+      });
+      $("#if-error").hide();
+      return flag;
+    }else {
+      email.parent().parent().addClass('has-error');
+      email.focus();
+      $("#if-error").html(format_email);
       $("#if-error").show();
 
       return 1;

@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 					<div class="avatar text-xs-center"><img src=<?php echo $img_url; ?>></div>
 				</div>
 				<div class="col-sm-7 heading-text ">
-					<span class="heading-top  ">Welcome</span>
+					<span class="heading-top  ">Welcome, I'm your agent.</span>
 					<div class="row" id="no-margin-top">
 						<div class="col-xs-12">
 							<div class="avatar-desc ">
@@ -222,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
    <div id="page-wrap">
       <div id="content" class="text-center">
         <?php
-            // include '_mmg-images.php';
+            include '_marketing-images.php';
          ?>
 	    </div> <!-- end page-wrap -->
    </div>
@@ -304,10 +304,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
               </div>
             </div>
             <div class="form-group">
+              <small><span id='email-if-error'></span></small>
               <div class="input-group ">
                 <span class="input-group-addon" id="bg-white"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                 <input name="email" id="email" type="email" class="form-control" autocomplete="off" placeholder="E-Mail" aria-describedby="basic-addon1" value="<?php echo $email; ?>" required>
+                <span class="input-group-addon">
+                  <span id="email-availability-status">
+                    <i class="fa fa-spinner fa-pulse fa-fw" id="loaderIcon" style="display:none"></i>
+                    <i class="fa fa-question" id="question-icon" ></i>
+                  </span>
+                </span>
               </div>
+              <span class='errors input-error' id='error-text'>
+              <small>*E-Mail: someone@example.com</small>
+              </span>
             </div>
             <div class="row"  id="no-margin">
                <div class="col-md-12 ">
@@ -347,7 +357,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                      <i class="fa fa-question" id="question-icon" ></i>
                    </span>
                  </span>
-
                </div>
                <span class='errors input-error' id='error-text'>
                <small>*Username: One word, no space, lowercase & no (. * $ # !?) </small>
