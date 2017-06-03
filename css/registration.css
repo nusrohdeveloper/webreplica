@@ -1,0 +1,136 @@
+<style media="screen">
+* {
+  border-radius: 0 !important;
+}
+/*body{
+  background: url('bg.jpg');
+}*/
+body.page-id-70 .wrapall{
+// background-image:url(//www.gajimasyuk.com/wp-content/themes/unicon/bg.jpg);
+  	background: #990d1a;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
+    /*background-size: cover;*/
+    /*min-height: 100%;*/
+    color: white;
+}
+
+body{
+    background-image:url(../images/intro.png);
+    /*background-color: #666;*/
+    background-repeat: repeat;
+  	/*background: #990d1a;*/
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;*/
+    color: white;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input{
+  font-size: 12px;
+}
+.content{
+  width: 100%;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+
+}
+.heading-borang h1 h2 h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+#bg-white{
+  background-color: white;
+}
+#bg-white i{
+  color: gray;
+}
+.in-form-row{
+  margin-bottom: 0;
+}
+.btn-yellow {
+    background: yellow;
+    color: black;
+}
+.btn-yellow:hover {
+    background: #d7dc04;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+.span6 {
+  display: table-cell;
+  vertical-align: bottom;
+  float: none;
+}
+
+#pengguna_form .has-success .form-control,
+#pengguna_form .has-success .input-group-addon{
+  background: #d8fdd2;
+  /*color: red;*/
+}
+#pengguna_form .has-error .form-control,
+#pengguna_form .has-error .input-group-addon{
+  background: #ffecec;
+  /*color: red;*/
+}
+
+#content{
+  padding: 10px;
+}
+.fileinput{
+  width: 100%;
+}
+.fileinput p{
+  margin: 10px 0;
+}
+#margin-bottom-20{
+	    margin-bottom: 20px;
+}
+#modal_notis{
+	color: black;
+}
+#modal_notis .close{
+	color: black;
+}
+.modal-body-content{
+ 	padding: 10px;
+ 	font-size: 12px;
+}
+#error-text{
+	color: yellow;
+}
+#blue-text{
+	color: blue;
+}
+.row{
+margin-bottom: 0;
+margin-right: 0px;
+}
+.padding-right-0{
+padding-right: 0px !important;
+}
+@media only screen and (max-device-width: 480px) {
+		#page-wrap.container{
+      padding-right: 0;
+      padding-left: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    #upload_span{
+      display: none;
+    }
+}
+
+</style>
