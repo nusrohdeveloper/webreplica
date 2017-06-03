@@ -1,5 +1,37 @@
 <?php
+
+// require_once "db_con/connection.php"; //Establishing connection with our database
+// include 'mail.php';
+
+
 $intro_title = "Hi, Welcome to Our Page";
+
+$nama = '';
+$no_tel = '';
+$no_kp = '';
+$email = '';
+$img_url = '';
+$no_idp = '';
+$status = '';
+$username = '';
+
+if (isset($_GET['username'])) {
+  $username = $_GET['username'];
+}
+if (isset($_POS['username'])) {
+  $username = $_POSt['username'];
+}
+
+$sql = mysqli_query($db,"SELECT * FROM user WHERE username = '$username'");
+$row = mysqli_fetch_array($sql,MYSQLI_ASSOC);
+$nama = $row["nama"];
+$no_tel = $row["no_tel"];
+$no_kp = $row["no_kp"];
+$email = $row["email"];
+$img_url = $row["img_url"];
+$no_idp = $row["no_idp"];
+$status = $row["status"];
+$username = $row["username"];
 
  ?>
 <!DOCTYPE html>
