@@ -1,7 +1,7 @@
 <?php
 
-// require_once "db_con/connection.php"; //Establishing connection with our database
-// include 'mail.php';
+require_once "db_con/connection.php"; //Establishing connection with our database
+include 'mail.php';
 
 
 $intro_title = "Hi, Welcome to Our Page";
@@ -24,14 +24,52 @@ if (isset($_POS['username'])) {
 
 $sql = mysqli_query($db,"SELECT * FROM user WHERE username = '$username'");
 $row = mysqli_fetch_array($sql,MYSQLI_ASSOC);
-$nama = $row["nama"];
-$no_tel = $row["no_tel"];
-$no_kp = $row["no_kp"];
+$nama = $row["name"];
+$no_tel = $row["phone"];
 $email = $row["email"];
 $img_url = $row["img_url"];
-$no_idp = $row["no_idp"];
+$membership_id = $row["membership_id"];
 $status = $row["status"];
 $username = $row["username"];
+
+
+if (isset($_POST["notify_member"])) {
+  $email_to = $_POST["email_to"];
+  $username = $_POST["username"];
+  $whatsapp = $_POST["whatsapp"];
+  $email_prospek = $_POST["email_prospek"];
+  $email_prospek = $_POST["email_prospek"];
+
+  $to = $email_to;
+
+  $message = '<html><body align="center">';
+  $message .= '<h2 style="text-align: center; "><font face="Verdana" color="#0000ff"><b>Assalamualaikum & Salam Hormat, <br>Tahniah '. strip_tags($username). '!!!</b></font></h2>
+  <h4 style="text-align: center; "><b><font face="Helvetica">Prospect Information</font><br><br>
+  <div style="padding: 10px 5px">
+  <table width="100%" cellpadding="10px" cellspacing="0" border="1px">
+   <tr>
+     <td>Name</td>
+     <td>No Tel</td>
+     <td>Email</td>
+   </tr>
+   <tr>
+     <td>'.$nama_prospek.'</td>
+     <td>'.$whatsapp.'</td>
+     <td>'.$email_prospek.'</td>
+   </tr>
+  </table>
+  </div>
+  <br>
+
+  <font face="Helvetica" color="#ff0000">SEMOGA BERJAYA!</font></b></h4><br><br>
+  <span style="text-align: left; color: #ff0000;"  >This is a system generated email. Please do not reply to it. If you want to contact us, please reply to:</span>
+  <span style="text-align: left; " >support@mmguia.com </span><br><br>';
+  $message .= "</body></html>";
+
+  // wp_mail($to,$email_subject,$message,$headers);
+  smtpmailer($to, $name , 'info@gajimasyuk.com', 'Gajimasyuk MMGUIA', $email_subject, $message);
+  header("Location: marketing.php?username=$username");
+}
 
  ?>
 <!DOCTYPE html>
@@ -123,8 +161,8 @@ $username = $row["username"];
 						</div>
 
 						 <div class="margin-top-10">
-							 <!-- <input type="hidden" name="email_to" value=<?php echo $email; ?>> -->
-							 <!-- <input type="hidden" name="username" value=<?php echo $username; ?>> -->
+							 <input type="hidden" name="email_to" value=<?php echo $email; ?>>
+							 <input type="hidden" name="username" value=<?php echo $username; ?>>
 								 <input class="btn btn-success btn-block" type="submit" id="btn-notify" name="notify_member" value="SUBMIT">
 						 </div>
 				 </form>
