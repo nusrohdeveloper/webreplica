@@ -140,7 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != ''){
     <title>Daftar Web Gajimasyuk</title>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/sbootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap-fileinput/bootstrap-fileinput.css"> -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <link rel="stylesheet" href="csss/bootstrap.css">
   <?php
     // echo " <script>var date48h = '$date48h'</script>";
     ?>

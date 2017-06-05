@@ -40,7 +40,9 @@
 
                               </div>
                               <div class="col-sm-5 ">
-                                  <div class="fileinput-new thumbnail" style="width: 200px; height: 280px;"><img src="images/resit_contoh.jpg" alt="" class="img-responsive"/> </div>
+
+                                  <div class="fileinput-new thumbnail" style="width: 200px; height: 280px;"><img src="images/resit_contoh.png" alt="" class="img-responsive"/> </div>
+
                                   <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 280px;"> </div>
                               </div>
                               <div class="col-sm-6">
