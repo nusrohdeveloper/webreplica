@@ -1,4 +1,5 @@
 <div class="modal fade" id="myModal" role="dialog">
+  <form action="pengesahan-web_new.php?username=<?php echo $username_prospek?>"  method="post" enctype="multipart/form-data">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -15,7 +16,6 @@
             </div>
           <div class="row margin-top-20">
               <div class="col-md-12">
-                   <form id="admin_pengguna_form" name="admin_pengguna_form" role="form" method="post" onsubmit=""  enctype="multipart/form-data" >
                         <div class="form-group">
                              <div class="row text-center">
                                 <div class="col-sm-2"></div>
@@ -60,14 +60,6 @@
                             </div>
                           </div>
                         </div>
-                        <!--<hr>-->
-                        <!--<div class="margin-top-10">-->
-                        <!--    <input class="btn green" type="submit" name="simpan_pengguna" value="Simpan">-->
-                            <!-- <input class="btn btn-warning" data-dismiss="modal" name="" value="Batal"> -->
-                        <!--    <input class="pull-right btn btn-outline dark" type="Reset" name="" value="Kosongkan">-->
-                            <!-- <button type="button" data-dismiss="modal" class="btn btn-outline dark">Cancel</button> -->
-                        <!--</div>-->
-
               </div>
 
           </div>
@@ -81,6 +73,7 @@
         </div>
       </div>
 
-    </form>
     </div>
+  </form>
+
 </div>

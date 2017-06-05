@@ -54,6 +54,7 @@
      }else if(!email_value.match(/[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)){
          //if it's bellow the minimum show characters_error text '
          $('#email-availability-status').html(characters_error);
+         $('#email').focus();
      }else{
          //else show the cheking_text and run the function to check
          $('#email-availability-status').html(loading_icon);

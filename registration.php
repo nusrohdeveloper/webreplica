@@ -85,7 +85,6 @@ if (isset($_POST['simpan_pengguna'])){
   date_default_timezone_set("Asia/Kuala_Lumpur");
   $created_at = date("h:i:s A d/m/Y l");
   $img_url = '';
-
   if ($_POST['username'] != '' && $_POST['name'] != ''
         && ( isset($_POST['ic_no']) && $_POST['ic_no'] != '' )
     	  && $_POST['email'] != '' && $_POST['phone'] != '' && strlen($phone) >= 10 && strlen($phone) <= 11
@@ -94,7 +93,7 @@ if (isset($_POST['simpan_pengguna'])){
         $result = mysqli_query($db, "SELECT * FROM user WHERE username = '$username'");
         $num_rows = mysqli_num_rows($result);
     if( $num_rows == 0 ) {
-        // echo 'dah masyuk<br>';
+        echo 'dah masyuk<br>';
 
          if(isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0){
           // echo 'dah masyuk upload pls<br>';
@@ -120,7 +119,7 @@ if (isset($_POST['simpan_pengguna'])){
            $img_url_uploaded = $newfilename;
 
            if(empty($errors_uploading)==true){
-            // echo "VALUES('$username','$name','$address', '$email ','$membership_id','$phone','$ic_no','$img_url_uploaded'";
+            //  echo "VALUES('$username','$name','$address', '$email ','$membership_id','$phone','$ic_no','$img_url_uploaded'";
              $sql =  "INSERT INTO user
                      ( username,
                        name,
@@ -129,7 +128,8 @@ if (isset($_POST['simpan_pengguna'])){
                        membership_id,
                        phone,
                        ic_no,
-                       img_url)"
+                       img_url,
+                       created_at)"
                      . " VALUES(
                        '$username',
                        '$name',
@@ -138,15 +138,16 @@ if (isset($_POST['simpan_pengguna'])){
                        '$membership_id ',
                        '$phone ',
                        '$ic_no',
-                       '$img_url_uploaded')";
+                       '$img_url_uploaded',
+                       '$created_at')";
 
 
              if(mysqli_query($db, $sql))
              {
               // echo 'uploads img<br>';
                move_uploaded_file($file_tmp,"images/uploads/".$newfilename);
-              echo 'masuk';
-                $to = $email;
+              //  echo 'masuk';
+               $to = $email;
             //     $email_subject = "WEBSITE REPLIKA MMGUIA";
             //     $message = '<html><body align="center">';
             //     $message .= '<h2 style="text-align: center; "><font face="Verdana" color="#0000ff"><b>Assalamualaikum dan Salam Hormat, <br>Hai ' . strip_tags($name) . '!!!</b></font></h2>
@@ -167,9 +168,11 @@ if (isset($_POST['simpan_pengguna'])){
             // 	    </script>";
 
             //   $args_array =  'username='.$username.'&name='.$name.'&email='.$email.'&no_tel='.$no_tel.'&img_url='.$img_url_uploaded;
-            //   header("Location: pengesahan-web.php?$args_array");
-            header("Location: registration.php");
+              header("Location: pengesahan-web_new.php?username=$username");
+              exit();
+              // header("Location: registration.php");
              }
+             echo("Error description: " . mysqli_error($db));
 
            }else{
              $errors = "<li>Terdapat isu dengan Gambar.</li>";
@@ -319,7 +322,7 @@ if (isset($_POST['simpan_pengguna'])){
                             <span class="btn default btn-file span6">
                               <span class="fileinput-new"> Select image </span>
                               <span class="fileinput-exists"> Change </span>
-                              <input type="file" name="avatar" id="avatar"  required> </span>
+                              <input type="file" name="avatar" id="avatar"  > </span>
                               <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                             </div>
                           </div>
@@ -356,7 +359,9 @@ if (isset($_POST['simpan_pengguna'])){
 <script src="js/form_validation.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="js/registration.js"> -->
-<?php
-    echo " var visited  = ". json_encode(isset($_POST['simpan_pengguna'])).";";
-?>
+<script type="text/javascript">
+  <?php
+  echo " var visited  = ". json_encode(isset($_POST['simpan_pengguna'])).";";
+  ?>
+</script>
 <script src="js/registration.js" charset="utf-8"></script>

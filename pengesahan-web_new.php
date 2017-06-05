@@ -2,56 +2,64 @@
 
 require_once "db_con/connection.php"; //Establishing connection with our database
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      if (isset($_POST["simpan_pengguna"])){
+if (isset($_POST["simpan_pengguna"])){
 
-        $username = $_POST["username"];
-        $datetime_resit = mysqli_real_escape_string($db, $_POST['dtp_input1']);
-        date_default_timezone_set("Asia/Kuala_Lumpur");
-        $updated_at = date("h:i:s A d/m/Y l");
-        if(isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0){
-            // echo 'dah masyuk upload pls<br>';
-            $file_name = $_FILES['avatar']['name'];
-            $file_size =$_FILES['avatar']['size'];
-            $file_tmp =$_FILES['avatar']['tmp_name'];
-            $file_type=$_FILES['avatar']['type'];
-            $tmp = explode('.', $file_name);
-            $file_extension = end($tmp);
-            $newfilename = round(microtime(true)) . '.' . $file_extension;
-            $file_ext=strtolower($file_extension);
+  $username = $_POST["username"];
+  $datetime_resit = mysqli_real_escape_string($db, $_POST['dtp_input1']);
+  date_default_timezone_set("Asia/Kuala_Lumpur");
+  $updated_at = date("h:i:s A d/m/Y l");
+  if(isset($_FILES['avatar']) && $_FILES['avatar']['size'] > 0){
+    // echo 'dah masyuk upload pls<br>';
+    $file_name = $_FILES['avatar']['name'];
+    $file_size =$_FILES['avatar']['size'];
+    $file_tmp =$_FILES['avatar']['tmp_name'];
+    $file_type=$_FILES['avatar']['type'];
+    $tmp = explode('.', $file_name);
+    $file_extension = end($tmp);
+    $newfilename = round(microtime(true)) . '.' . $file_extension;
+    $file_ext=strtolower($file_extension);
 
-            $expensions= array("jpeg","jpg","png");
+    $expensions= array("jpeg","jpg","png");
 
-            if(in_array($file_ext,$expensions)=== false){
-               $errors_uploading[]="extension not allowed, please choose a JPEG or PNG file.";
-            }
+    if(in_array($file_ext,$expensions)=== false){
+      $errors_uploading[]="extension not allowed, please choose a JPEG or PNG file.";
+    }
 
-            if($file_size > 500000){
-               $errors_uploading[]='File size must be less than 2 MB';
-            }
+    if($file_size > 500000){
+      $errors_uploading[]='File size must be less than 2 MB';
+    }
 
-            $resit = $newfilename;
+    $resit = $newfilename;
 
-            if(empty($errors_uploading)==true){
-              move_uploaded_file($file_tmp,"images/resit/".$newfilename);
-            }
-          }
+    if(empty($errors_uploading)==true){
+      move_uploaded_file($file_tmp,"images/resit/".$newfilename);
+    }
+  }
 
-       $sql =  "UPDATE user SET
-                  datetime_resit = '$datetime_resit',
-                  status = 'Sedang Diproses',
-                  resit = '$resit',
-                  updated_at = '$updated_at'
-                WHERE username = '$username'";
-        if(empty($errors_uploading)==true && mysqli_query($db, $sql))
-        {
-          header("Location: ../thanks.php");
-        } else{
-          header("Location: ../pengesahan-web.php/$username");
-        }
+  $sql =  "UPDATE user SET
+  datetime_resit = '$datetime_resit',
+  status = 'Sedang Diproses',
+  resit = '$resit',
+  updated_at = '$updated_at'
+  WHERE username = '$username'";
 
-      }
+  if(empty($errors_uploading)==true && mysqli_query($db, $sql))
+  {
+    echo "masukkkk";
+    echo "<script>alert('successfully uploaded. ');</script>";
+    echo "<script>
+            window.location.href = 'thanks.php';
+        </script>";
+  } else{
+    echo "<script>alert('upload failed. ');</script>";
+    echo "<script>
+            window.location.href = 'pengesahan-web_new.php?username=$username';
+        </script>";
+  }
+
 }
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// }
 
  $name = '';
  $email = '';
@@ -62,9 +70,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != ''){
-
-    $username = $_GET['username'];
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != '' || $_POST["username"]  != '' ){
+  // echo "masukkkk";
+    if ($_GET['username'] != '') {
+      $username = $_GET['username'];
+    }
+    else {
+      $username = $_POST['username'];
+    }
+    // $username = $_GET['username'] || $_POST["username"] ;
     // $nama = ucwords(str_replace("-"," ",$_GET['nama']));
     // $email = $_GET['email'];
     // $no_tel = $_GET['no_tel'];
@@ -91,8 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != ''){
       //             </script>";
       //     }
 
-    $date11 = DateTime::createFromFormat('h:i:s A d/m/Y l', $created_at);
-    // $date11 = $date->format('Y-m-d H:i');
+    $date = DateTime::createFromFormat('h:i:s A d/m/Y l', $created_at);
+    $date11 = $date->format('Y-m-d H:i');
     $date48h = date('Y/m/d H:i:s', strtotime($date11 . " +48 hours"));
     $date48h = date('Y-m-d H:i', strtotime($date11 . " +48 hours"));
     $date48 = date('h:i:s A d/m/Y l', strtotime($date11 . " +48 hours"));
@@ -151,9 +165,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != ''){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/bootstrap-fileinput/bootstrap-fileinput.css">
-<?php
-  echo " <script>var date48h = '$date48h'</script>";
-  ?>
   <link href="datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
@@ -162,6 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != ''){
         include "_modal_pembayaran_manual.php";
 
     ?>
+
     <div id="container">
 		 <div id="page-wrap" >
 			 <div class="row">
@@ -358,7 +370,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['username'] != ''){
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="datetimepicker/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-   <script type="text/javascript" src="datetimepicker/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+   <!-- <script type="text/javascript" src="datetimepicker/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script> -->
  <script src="assets/bootstrap-fileinput/bootstrap-fileinput.js" charset="utf-8"></script>
     <script>
         $(".readonly").on('keydown paste', function(e){
