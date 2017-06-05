@@ -1,0 +1,143 @@
+body{
+  background: url('../images/bg/intro.png');
+}
+
+.text-white, .text-borang{
+  color: white;
+}
+.text-borang-bottom{
+  color: yellow;
+}
+.heading-text-welcome{
+  color: white;
+  padding: 20px 15%;
+  font-size: 34px;
+  line-height: 1.2 !important;
+}
+.title{
+  padding: 20px;
+}
+.intro-img{
+  padding: 50px;
+  background-color: #f1f1f1;
+}
+.intro-img img{
+  max-width: 100%;
+  height: auto;
+  padding: 40px;
+  margin-bottom: 20px;
+  /*max-width: 400px*/
+}
+.cta{
+  padding: 130px 30px 0 30px;
+  min-height: 300px;
+}
+.video-section{
+  padding: 30px 0px;
+  background-color: #1c1c1c;
+}
+.video-wrap{
+  margin: auto;
+  width:80%;
+  max-width:720px;
+}
+.video-container {
+  position:relative;
+  padding-bottom:56.25%;
+  padding-top:30px;
+  height:0;
+  overflow:hidden;
+}
+.video-container iframe, .video-container object, .video-container embed {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.line{
+   border-bottom: 1px solid white;
+   margin: 0 20%;
+   padding: 15px 0px;
+ }
+#text-under-video{
+  font-size: 24px;
+}
+#no-margin{
+  margin-bottom: 0;
+  margin-right: 0px;
+}
+.borang{
+  padding: 30px;
+}
+.text-borang{
+  margin-top: 40px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2 !important;
+}
+.text-borang-bottom{
+  padding-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+@media only screen and (min-width: 481px)  and (max-width: 770px) {
+
+  #text-under-video{
+    padding: 5px 10px 0px 10px;
+    font-size: 18px;
+  }
+  .intro-img img{
+    padding: 20px;
+  }
+  .intro-img {
+    padding: 20px;
+  }
+  .borang{
+    padding: 10px;
+  }
+  .padding-right-0{
+    padding-right: 0px !important;
+  }
+  .text-borang{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .text-borang-bottom{
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .heading-text-welcome{
+    padding: 20px 10%;
+    font-size: 24px;
+    line-height: 1.2 !important;
+  }
+  #text-under-video{
+    padding: 5px 10px 0px 10px;
+    font-size: 15px;
+  }
+  .intro-img img{
+    padding: 10px;
+  }
+  .intro-img {
+    padding: 10px;
+  }
+  .padding-right-0{
+    padding-right: 0px !important;
+  }
+  .borang{
+    padding: 10px;
+  }
+  .text-borang{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .text-borang-bottom{
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+}
