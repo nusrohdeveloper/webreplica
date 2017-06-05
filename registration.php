@@ -250,25 +250,22 @@ if (isset($_POST['simpan_pengguna'])){
                     </span>
                   </div>
                   <span class='errors input-error' id='error-text'>
-		  <small>*Username: Capital Letter, a Sentences, No Number & No (.*$#!?) </small>
+		  <!-- <small>*Username: Capital Letter, a Sentences, No Number & No (.*$#!?) </small> -->
 		  </noscript>
 		  </span>
                 </div>
-                Name:
                 <div class="form-group">
                   <div class="input-group ">
                     <span class="input-group-addon" id="bg-white"><i class="fa fa-user"></i></span>
                     <input name="name" id="name" type="text" class="form-control" autocomplete="off" placeholder="Your Name" aria-describedby="basic-addon1"  value="<?php echo $name; ?>" required>
                   </div>
                 </div>
-                Address:
                 <div class="form-group">
                   <div class="input-group ">
                     <span class="input-group-addon" id="bg-white"><i class="fa fa-user"></i></span>
                     <input name="address" id="address" type="text" class="form-control" autocomplete="off" placeholder="Your Address" aria-describedby="basic-addon1"  value="<?php echo $address; ?>" required>
                   </div>
                 </div>
-                Email:
                 <div class="form-group">
                   <div class="input-group ">
                     <span class="input-group-addon" id="bg-white"><i class="fa fa-envelope" aria-hidden="true"></i></span>
@@ -281,25 +278,22 @@ if (isset($_POST['simpan_pengguna'])){
                     </span>
                   </div>
                   <span class='errors input-error' id='error-text'>
-		                  <small>*Example: somebody@gmail.com</small>
+		                  <!-- <small>*Example: somebody@gmail.com</small> -->
               		  </noscript>
             		  </span>
                 </div>
-              Membership Number:
               <div class="form-group">
                 <div class="input-group ">
                   <span class="input-group-addon" id="bg-white"><i class="fa fa-address-card" aria-hidden="true"></i></span>
-                  <input pattern="(?=.*\d).{,12}" name="membership_id" id="membership_id" type="number" class="form-control" autocomplete="off" placeholder="ex: 123456" aria-describedby="basic-addon1" value="<?php echo $membership_id; ?>">
+                  <input pattern="(?=.*\d).{,12}" name="membership_id" id="membership_id" type="number" class="form-control" autocomplete="off" placeholder="Membership ID: eg, 123456" aria-describedby="basic-addon1" value="<?php echo $membership_id; ?>">
               </div>
             </div>
-              Telephone Number:
                 <div class="form-group">
                   <div class="input-group ">
                     <span class="input-group-addon" id="bg-white"><i class="fa fa-phone" aria-hidden="true"></i></span>
                     <input name="phone" id="phone" type="number" class="form-control" autocomplete="off" placeholder="ex: 0123456789" aria-describedby="basic-addon1" value="<?php echo $phone; ?>" required>
                   </div>
                 </div>
-                IC Number:
               <div class="form-group">
                 <div class="input-group ">
                   <span class="input-group-addon" id="bg-white"><i class="fa fa-address-card" aria-hidden="true"></i></span>
