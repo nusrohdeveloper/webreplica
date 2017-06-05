@@ -98,7 +98,7 @@
        }
        });
 
->>>>>>> marketing
+
   $("#username").on('blur',function(){
   var min_chars = 3;
 
@@ -317,7 +317,6 @@
        }
      }
 
-  }
   function checkAvailability() {
     var indicator;
     var flag = 0;
