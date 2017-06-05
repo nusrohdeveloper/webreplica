@@ -269,7 +269,7 @@ if (isset($_POST['simpan_pengguna'])){
                 <div class="form-group">
                   <div class="input-group ">
                     <span class="input-group-addon" id="bg-white"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <input pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" id="email" type="email" class="form-control" autocomplete="off" placeholder="Your Email Address" aria-describedby="basic-addon1" value="<?php echo $email; ?>" required>
+                    <input name="email" id="email" type="email" class="form-control" autocomplete="off" placeholder="Your Email Address" aria-describedby="basic-addon1" value="<?php echo $email; ?>" required>
                     <span class="input-group-addon">
                       <span id="email-availability-status">
                         <i class="fa fa-spinner fa-pulse fa-fw" id="loaderIcon" style="display:none"></i>

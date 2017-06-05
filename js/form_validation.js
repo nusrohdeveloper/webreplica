@@ -44,15 +44,16 @@
    //result texts
    var kosong = "<i class='fa fa-question' style='color:#ff8f00' ></i>";
    var loading_icon = "<i class='fa fa-spinner fa-pulse fa-fw' id='loaderIcon'></i>";
-   var characters_error = 'Username mesti sekurangnya 3 huruf.';
+   var characters_error = 'Example: somebody@gmail';
    var checking_html = 'Checking...'
-   
+   var email_value=$('#email').val();
+
     if($('#email').val().length == 0){
          //if it's bellow the minimum show characters_error text '
          $('#email-availability-status').html(kosong);
-     }else if($('#email').val().length < min_chars){
+     }else if(!email_value.match(/[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)){
          //if it's bellow the minimum show characters_error text '
-         $('#email-availability-status').html(kosong);
+         $('#email-availability-status').html(characters_error);
      }else{
          //else show the cheking_text and run the function to check
          $('#email-availability-status').html(loading_icon);
