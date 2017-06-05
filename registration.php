@@ -273,7 +273,7 @@ if (isset($_POST['simpan_pengguna'])){
                     <span class="input-group-addon">
                       <span id="email-availability-status">
                         <i class="fa fa-spinner fa-pulse fa-fw" id="loaderIcon" style="display:none"></i>
-                        <i class="fa fa-question" id="question-icon" ></i>
+                        <i class="fa fa-question" id="question-icon-email" ></i>
                       </span>
                     </span>
                   </div>
@@ -356,4 +356,7 @@ if (isset($_POST['simpan_pengguna'])){
 <script src="js/form_validation.js" charset="utf-8"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- <link rel="stylesheet" href="js/registration.js"> -->
+<?php
+    echo " var visited  = ". json_encode(isset($_POST['simpan_pengguna'])).";";
+?>
 <script src="js/registration.js" charset="utf-8"></script>

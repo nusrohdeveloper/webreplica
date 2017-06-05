@@ -38,7 +38,6 @@
          checkAvailability();
      }
   });
-<<<<<<< HEAD
   $("#email").on('blur',function(){
   var min_chars = 3;
 
@@ -61,8 +60,6 @@
          checkAvailabilityEmail();
      }
   });
-=======
->>>>>>> paymentreg
 
 
   var _URL = window.URL || window.webkitURL;
@@ -218,8 +215,6 @@
       flag = 1;
     }
     return flag;
-
-<<<<<<< HEAD
 }
     // function checkAvailabilityEmail() {
     //    var test;
@@ -249,7 +244,7 @@
        var email_value = $("#email").val();
        if(email_value != '')
        {
-         $("#question-icon").hide();
+         $("#question-icon-email").hide();
          jQuery.ajax({
          url: "check_email.php",
          data:'email='+$("#email").val(),
@@ -275,10 +270,6 @@
          return 1;
        }
      }
-
-=======
-  }
->>>>>>> paymentreg
   function checkAvailability() {
     var indicator;
     var flag = 0;

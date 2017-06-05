@@ -161,11 +161,9 @@ $( document ).ready(function() {
  }
 
   $(document).ready(function(){
-    <?php
-      echo " var visited  = ". json_encode(isset($_POST['simpan_pengguna'])).";";
-  ?>
-  if (!visited) {
-    $('#modal_notis').modal('show');
-  }
- });
+    if (!visited) {
+      $('#modal_notis').modal('show');
+    }
+  });
+
  });
