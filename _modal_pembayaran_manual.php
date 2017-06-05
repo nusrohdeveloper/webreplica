@@ -1,5 +1,5 @@
 <div class="modal fade" id="myModal" role="dialog">
-  <form action="pengesahan-web_new.php?username=<?php echo $username_prospek?>"  method="post" enctype="multipart/form-data">
+  <form action=""  method="post" enctype="multipart/form-data">
     <div class="modal-dialog">
 
       <!-- Modal content-->
