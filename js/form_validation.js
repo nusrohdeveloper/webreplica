@@ -114,7 +114,6 @@
     if($('#email').val().length == 0){
          //if it's bellow the minimum show characters_error text '
          $('#email-availability-status').html(empty);
-         email.parent().parent().removeClass('has-error');
      }else if(!email_value.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/)){
          //if it's bellow the minimum show characters_error text '
          $('#email-availability-status').html(characters_error);
