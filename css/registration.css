@@ -95,6 +95,12 @@ input{
 .fileinput p{
   margin: 10px 0;
 }
+#email-if-error{
+color: #b12e2e;
+}
+#if-error{
+color: #b12e2e;
+}
 #margin-bottom-20{
 	    margin-bottom: 20px;
 }

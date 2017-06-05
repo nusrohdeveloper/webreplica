@@ -238,7 +238,6 @@ if (isset($_POST['simpan_pengguna'])){
 						</div>
 
                 <div class="form-group">
-                  <small><span id='if-error'></span></small>
                   <div class="input-group ">
                     <span class="input-group-addon" id="bg-white"><i class="fa fa-address-card" id="username-icon"></i>&nbsp;</span>
                     <input pattern="[a-zA-Z0-9]{5,15}" title="5 hingga 15 huruf" name="username" id="username" type="text" class="form-control" autocomplete="off" placeholder="Username" aria-describedby="basic-addon1"  value="<?php echo $username; ?>"  required>
@@ -249,10 +248,7 @@ if (isset($_POST['simpan_pengguna'])){
                       </span>
                     </span>
                   </div>
-                  <span class='errors input-error' id='error-text'>
-		  <!-- <small>*Username: Capital Letter, a Sentences, No Number & No (.*$#!?) </small> -->
-		  </noscript>
-		  </span>
+                 <span id='if-error'></span>
                 </div>
                 <div class="form-group">
                   <div class="input-group ">
@@ -277,10 +273,7 @@ if (isset($_POST['simpan_pengguna'])){
                       </span>
                     </span>
                   </div>
-                  <span class='errors input-error' id='error-text'>
-		                  <!-- <small>*Example: somebody@gmail.com</small> -->
-              		  </noscript>
-            		  </span>
+                 <span id='email-if-error'></span>
                 </div>
               <div class="form-group">
                 <div class="input-group ">
@@ -358,4 +351,3 @@ if (isset($_POST['simpan_pengguna'])){
   echo " var visited  = ". json_encode(isset($_POST['simpan_pengguna'])).";";
   ?>
 </script>
-<script src="js/registration.js" charset="utf-8"></script>

@@ -304,7 +304,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
               </div>
             </div>
             <div class="form-group">
-              <small><span id='email-if-error'></span></small>
               <div class="input-group ">
                 <span class="input-group-addon" id="bg-white"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                 <input name="email" id="email" type="email" class="form-control" autocomplete="off" placeholder="E-Mail" aria-describedby="basic-addon1" value="<?php echo $email; ?>" required>
@@ -315,9 +314,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                   </span>
                 </span>
               </div>
-              <span class='errors input-error' id='error-text'>
-              <small>*E-Mail: someone@example.com</small>
-              </span>
+              <span id='email-if-error'></span>
             </div>
             <div class="row"  id="no-margin">
                <div class="col-md-12 ">
@@ -346,7 +343,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                </div>
              </div>
              <div class="form-group">
-               <small><span id='if-error'></span></small>
                <div class="input-group ">
                  <span class="input-group-addon" id="bg-white"><i class="fa fa-gift" id="username-icon"></i>&nbsp;
                  <small class="hidden-xs">webreplica.com/user/</small></span>
@@ -358,10 +354,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                    </span>
                  </span>
                </div>
-               <span class='errors input-error' id='error-text'>
-               <small>*Username: One word, no space, lowercase & no (. * $ # !?) </small>
-               </span>
-               <small><span class='errors input-error-2' id='error-text'><span></small>
+              <span id='if-error'></span>
              </div>
              <div class="form-group">
                            <div class="fileinput fileinput-new" data-provides="fileinput">
