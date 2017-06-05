@@ -325,7 +325,7 @@ if (isset($_POST['simpan_pengguna'])){
                     </div>
                      <div class="form-group">
 			<div class="input-group ">
-				<span class="input-group-addon" id="bg-white"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp; <small>Web Replika</small>&nbsp; RM</span>
+				<span class="input-group-addon" id="bg-white"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp; <small>Your Product</small>&nbsp; RM</span>
 				<input name="kos_pos" id="kos_pos" type="number" class="form-control" autocomplete="off" value='50.00' aria-describedby="basic-addon1" readonly=""><input name="kos_web" id="kos_web" type="hidden" value='30.00'>
 			</div>
 			<span><small> * RM50 once in a lifetime</small></span>
