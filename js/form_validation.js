@@ -38,6 +38,7 @@
          checkAvailability();
      }
   });
+<<<<<<< HEAD
   $("#email").on('blur',function(){
   var min_chars = 3;
 
@@ -60,6 +61,8 @@
          checkAvailabilityEmail();
      }
   });
+=======
+>>>>>>> paymentreg
 
 
   var _URL = window.URL || window.webkitURL;
@@ -216,6 +219,7 @@
     }
     return flag;
 
+<<<<<<< HEAD
 }
     // function checkAvailabilityEmail() {
     //    var test;
@@ -272,6 +276,9 @@
        }
      }
 
+=======
+  }
+>>>>>>> paymentreg
   function checkAvailability() {
     var indicator;
     var flag = 0;

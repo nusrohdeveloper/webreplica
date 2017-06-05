@@ -1,0 +1,62 @@
+body{
+      background-image:url('../images/intro.png');
+      background-repeat: repeat;
+  }
+#container {
+font-family: "Roboto", Helvetica, Arial, sans-serif;
+background-image: url('../images/intro.png');
+padding: 20px 80px;
+min-height: 100%;
+position: relative;
+
+}
+#container .row{
+  margin-bottom: 10px;
+}
+  .margin-top-20{
+    margin-top: 20px;
+  }
+  .margin-top-150{
+    margin-top: 70px;
+  }
+.btn.default{
+  background-color: #e1e5ec;
+  border-color: #e1e5ec;
+}
+.btn.red{
+     color: #fff;
+  background-color: #e12330;
+  border-color: #dc1e2b;
+}
+.fileinput{
+width: 100%;
+}
+.fileinput p{
+margin: 10px 0;
+}
+.image-responsive{
+  max-width: 300px;
+}
+.text-red{
+  color: red;
+}
+.img-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+.luput{
+    max-width: 350px;
+}
+.text-big{
+    font-size:35px;
+}
+.bg-red{
+    background-color: red;
+    color: white;
+    padding: 10px;
+}
+@media only screen and (max-width: 480px) {
+    #container {
+      padding: 20px 20px;
+    }
+}
